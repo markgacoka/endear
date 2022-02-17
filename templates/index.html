@@ -1,0 +1,378 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="canonical" href="https://venus/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@CySuite_" />
+    <meta name="twitter:creator" content="@CySuite_" />
+    <meta property="og:url" content="https://cysuite.io/" />
+    <meta property="theme-color" content="#373434" />
+    <meta property="msapplication-TileColor" content="#373434" />
+    <meta property="referrer" content="no-referrer-when-downgrade" />
+    <meta property="HandheldFriendly" content="True" />
+    <meta property="MobileOptimized" content="360" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+    <title>
+      CySuite
+    </title>
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="description" content="CySuite is a scalable web security tool for vulnerability assessment and exploitation testing."/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Scalable web security platform and API" />
+    <meta property="og:description" content="CySuite is a scalable web security tool for vulnerability assessment and exploitation testing."/>
+    <meta property="og:image" content="{% static 'img/logo/og_image.png' %}"/>
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:site_name" content="CySuite" />
+    <meta property="keywords" content="Security Testing Platform" />
+    <meta name="twitter:title" content="Scalable web security platform and API" />
+    <meta name="twitter:image" content="{% static 'img/logo/logo.png' %}"/>
+    <meta property="og:image:type" content="image/png" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    <header class="header">
+        <div class="header__area">
+            <div class="header__area-container">
+            <nav class="header__area-container-navbar">
+                <div class="glue-header__lock-up">
+                    <div class="glue-header__logo">
+                        <a class="glue-header__logo-link" href="/" aria-label="CySuite" tabindex="0">
+                        <img src="{% static 'img/logo/logo_footer.png' %}" alt="CySuite" class="header__area-container-logo">
+                        </a>
+                    </div>
+                </div>
+                <ul class="header__list" style="float: right; display: flex; position: relative; padding-right: 100px;">
+                    <li class="header__list-item">
+                        <a class="glue-button glue-button--medium-emphasis" title="Log In" href="/login" tabindex="0">
+                            Log In
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </header>
+    <div class="hero-area-l1  position-relative background-property">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-10 order-lg-1 order-1 aos-init aos-animate" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
+            <div class="content">
+              <h2>Deploy secure code using the power of AI.</h2>
+              <p>CySuite provides you with an interactive dashboard to manage and secure all of your company's repositories with rich visualization.</p>
+                <a class="title-button glue-button--medium-emphasis" title="Create an Account" href="/register" style="color:white;">
+                Create an Account&emsp;<i class="fa fa-chevron-right" style="color: lightgray; z-index: 1;"></i></a>
+            </div>
+          </div>
+          <div class="offset-xxl-2 col-xxl-5 offset-xl-1 col-xl-5 col-lg-6 col-md-8 order-lg-1 order-0 aos-init aos-animate" data-aos="fade-left" data-aos-delay="700" data-aos-duration="1000">
+            <div class="hero-image-group-l1">
+              <div class="image-1">
+                <img class="w-100" src="{% static 'img/illustrations/landing.png' %}" alt="image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="saas_features_area_three bg_color sec_pad">
+        <div class="container">
+            <div class="sec_title text-center mb_70 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                <h2 class="font-bold text-3xl lg:text-5xl leading-snug text-white" style="color: #090E24;">How CySuite helps you find your company's weak spots</h2>
+                <p>The features follow a simple three step process consisting of advanced data collection, analysis and reporting.</p>
+            </div>
+            <div class="row mb_30 new_service">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="saas_features_item text-center wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <div class="number">1</div>
+                        <div class="separator"></div>
+                        <div class="new_service_content">
+                            <img src="{% static 'img/illustrations/collect.png' %}" alt="Gather information" style="width: 83%;">
+                            <h4 class="black font-semibold text-2xl lg:text-3xl leading-snug">Data Collection</h4>
+                            <p class="black text-base md:text-lg mt-6 text-whisper">Our dashboard allows you to organize all your source repositories into projects where all the security information is stored.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="saas_features_item text-center wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <div class="number">2</div>
+                        <div class="separator"></div>
+                        <div class="new_service_content">
+                            <img src="{% static 'img/illustrations/analyze.png' %}" alt="Analyze">
+                            <h4 class="black font-semibold text-2xl lg:text-3xl leading-snug">Vulnerability Analysis</h4>
+                            <p class="black text-base md:text-lg mt-6 text-whisper">Using Machine Learning and EDR, your source code is scanned internally and the deployed version is scanned externally for vulnerabilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="saas_features_item text-center wow fadeInUp" data-wow-delay="0.7s" style="visibility: visible; animation-delay: 0.7s; animation-name: fadeInUp;">
+                        <div class="number">3</div>
+                        <div class="separator"></div>
+                        <div class="new_service_content">
+                            <img src="{% static 'img/illustrations/report.png' %}" alt="Report information">
+                            <h4 class="black font-semibold text-2xl lg:text-3xl leading-snug">Advanced Reporting</h4>
+                            <p class="black text-base md:text-lg mt-6 text-whisper">A thorough report of your website's security score is generated with data visualizations and suggestions for improvement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-haiti py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="home_gridEng__3Mbrn home_gridTabs__1rT4S my-8 md:pt-0 pt-1 md:mt-0">
+                <div id="id-1" role="tablist" class="flex w-full overflow-hidden lg:overflow-hidden relative justify-center items-center h-full col-start-1 lg:col-start-2 text-light-haiti" aria-label="Graphcms For Engineering teams">
+                    <div class="absolute lg:relative top-0 right-0 left-0 bottom-0 h-full w-auto lg:overflow-x-hidden overflow-x-scroll overflow-y-hidden scrolling-touch whitespace-nowrap shadow-none md:shadow-border"></div>
+                </div>
+            </div>
+            <div>
+                <div style="opacity: 1; transform: translateY(0%); pointer-events: auto; z-index: 1;">
+                    <div id="id-1-4" style="" role="tabpanel" tabindex="0" class="home_gridEng__3Mbrn focus:outline-none lg:min-h-[462px]" aria-labelledby="queries-mutations">
+                        <div>
+                            <span class="caption aos-init aos-animate" style="color: #fff;">COLLECT</span>
+                            <h2 class="font-bold text-3xl lg:text-5xl leading-snug text-white">
+                                Query our API for structured data
+                            </h2>
+                            <p class="text-base md:text-lg mt-6 text-whisper">
+                                CySuite has a robust API with a vast corpus of various CVE data, public web data and patches which can be integrated with automation tools. Leverage our state of the art API to scan your site for bugs and get a security health score associated with it.
+                            </p>
+                        </div>
+                        <div class="text-white w-full overflow-auto">
+                            <div id="id-3" role="tablist" aria-label="Queries and Mutations examples" class="mb-6">
+                                <button id="queries" tabindex="0" aria-selected="true" role="tab" class="text-center tracking-wider uppercase p-3 rounded font-medium text-xs lg:text-sm focus:outline-none bg-light-bunting text-white mr-2" aria-controls="id-3-3">Simple</button>
+                            </div>
+                            <div id="id-3-3" style="" role="tabpanel" tabindex="0" class="focus:outline-none" aria-labelledby="queries">
+                                <div id="id-5" role="tablist" class="flex w-full overflow-hidden lg:overflow-hidden relative mb-6 h-8" aria-label="Queries code examples">
+                                    <div class="absolute lg:relative top-0 right-0 left-0 bottom-0 h-full w-auto lg:overflow-x-hidden overflow-x-scroll overflow-y-hidden scrolling-touch whitespace-nowrap">
+                                        <div class="space-x-3">
+                                            <button id="curl" tabindex="0" aria-selected="true" role="tab" class="text-sm text-left border-b pb-1 focus:outline-none text-white border-white" aria-controls="id-5-8">
+                                                CURL
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="id-5-8" style="" role="tabpanel" tabindex="0" class="focus:outline-none" aria-labelledby="Simple">
+                                    <div class="h-72 lg:h-84 overflow-auto bg-big-stone dark:bg-gray-900 rounded border flex-shrink-0 border-light-bunting Code_code__1q0xX">
+                                        <div class="relative h-full">
+                                            <div class="px-3 sticky top-0 z-10 py-3 bg-big-stone">
+                                                <div id="id-7" role="tablist" aria-label="Query and response">
+                                                    <button id="gql-query" tabindex="0" aria-selected="true" role="tab" class="text-center tracking-wider uppercase p-3 rounded font-medium text-xs lg:text-sm focus:outline-none" aria-controls="id-7-3">REQUEST</button>
+                                                    <button id="response" tabindex="-1" aria-selected="false" role="tab" class="text-center tracking-wider uppercase p-3 rounded font-medium text-xs lg:text-sm focus:outline-none" aria-controls="id-7-4">RESPONSE</button>
+                                                </div>
+                                            </div>
+                                            <div id="id-7-3" style="height: calc(100% - 70px);" role="tabpanel" tabindex="0" class="focus:outline-none text-sm" aria-labelledby="gql-query">
+                                                <pre id="request-api" class="prism-code language-graphql graphql Code_code__1q0xX rounded bg-big-stone font-mono block p-3 lg:p-6 relative h-full overflow-auto"></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="untree_co-section" id="features-section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-7 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                    <img src="/static/img/showcase/source_analysis.png" alt="Image" class="img-fluid img-shadow" style="width: max-content; height: auto;">
+                </div>
+                <div class="col-lg-4">
+                    <span class="caption aos-init aos-animate" style="color: #000000;">ANALYZE</span>
+                    <h2 class="font-bold text-3xl lg:text-5xl leading-snug" style="padding-bottom: 1rem;">Source Code Analysis</h2>
+                    <div class="mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                        <p class="text-base md:text-lg mt-6">
+                            Catch vulnerabilities in your code before the attacker does. Using Deep Representational Learning, our algorithms identifies, classifies and proposes fixes to potential security vulnerabilities in your application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="bg-haiti py-12">
+        <div class="untree_co-section" id="features-section">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-4">
+                        <span class="caption aos-init aos-animate" style="color: #fff;">REPORT</span>
+                        <h2 class="font-bold text-3xl lg:text-5xl leading-snug text-white">
+                            Health Score and Reporting
+                        </h2>
+                        <p class="text-base md:text-lg mt-6 text-whisper">
+                            Get access to reports about the real-time health of your website with suggestions for improvement. Discovered bugs are sorted by severity so you know what to focus on first.
+                        </p>
+                    </div>
+                    <div class="col-lg-7 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                        <img src="/static/img/showcase/map_source.png" alt="Image" class="img-fluid img-shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="untree_co-section" id="features-section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-4">
+                    <span class="caption aos-init aos-animate" style="color: #000000;">TUTORIAL</span>
+                    <h2 class="font-bold text-3xl lg:text-5xl leading-snug">See CySuite in action</h2>
+                    <p class="text-base md:text-lg mt-6">
+                        This step-by-step video showcases the capabilities of CySuite in finding bugs using the Damn Vulnerable Web App (DVWA) as an illustrative example.  If you wish to schedule any demos, feel free to contact us using the information provided below.
+                    </p>
+                </div>
+                <div class="col-lg-7 aos-init aos-animate iframe-container" data-aos="fade-up" data-aos-delay="400">
+                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-haiti">
+        <div class="max-w-6xl mx-auto px-6">
+        <div class="-mx-6">
+            <section class="bg-haiti text-white py-8">
+            <div class="mx-auto px-6 max-w-6xl">
+                <div class=" mb-6 lg:mb-12 mx-auto max-w-4xl">
+                <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl leading-snug mt-12">Advanced security analysis has never gotten easier</h2>
+                <p class="leading-loose my-3 md:my-4 lg:my-6">
+                    CySuite plans are flexible to suite all your needs. 
+                    Get started for free and enjoy basic features and tools today. 
+                    For more heavy users, the rate is charged by usage. Reach out to the sales team or visit the CySuite documentation to get more information.
+                </p>
+                <div class="inline-flex mt-6 space-x-4">
+                    <a class="border font-semibold inline-block rounded text-center transition-all px-4 py-2 text-sm bg-transparent border-rose text-rose hover:bg-rose hover:text-white" style="text-decoration: none;" href="https://markgacoka.gitbook.io/cysuite/docs/cysuite" rel="noopener noreferrer" target="_blank">Read the documentation →</a>
+                    <a class="border font-semibold inline-block rounded text-center transition-all px-4 py-2 text-sm bg-rose border-rose text-white hover:bg-rose hover:text-white" style="text-decoration: none;" href="/contact">Contact details →</a>
+                </div>
+                </div>
+            </div>
+            </section>
+        </div>
+        </div>
+    </div>
+    <footer class="bg-whisper">
+        <div class="max-w-6xl mx-auto px-6">
+            <div style="width: 100%; padding-top:2rem;">
+                <p class="widget-title" style="text-align: center;">Sign up to the newsletter to receive updates</p>
+                <form class="form-inline" style="justify-content: center; padding-top: 1rem;" method="post">
+                {% csrf_token %}
+                    <div class="newsletter-form news-icon text-md-center">
+                        <div>
+                            <span><input type="email" class="form-control" id="email" name="subscriber" size="40" style="color: black;" aria-required="true" placeholder="Enter Your Email :" /></span>
+                            <input type="submit" name="submit" value="Subscribe" class="email-btn" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="py-6 md:py-12 lg:py-20 border-b border-primary-100">
+                <div class="md:flex -mx-6">
+                    <div class="md:w-1/4 px-6">
+                        <ul class="mt-6 leading-loose">
+                            <li class="text-light-haiti text-sm uppercase tracking-wider font-medium mb-3">GET TO KNOW US</li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="/about-us" target="_blank">About Us</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="/terms-conditions" target="_blank">Terms of Service</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="/privacy-policy" target="_blank">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/4 px-6">
+                        <ul class="mt-6 leading-loose">
+                            <li class="text-light-haiti text-sm uppercase tracking-wider font-medium mb-3">BLOG</li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="https://medium.com/@cysuiteio" target="_blank">Medium Blog</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="/graphql">Sign up to Newsletter</a></li>
+                            <li><label class="text-sm" for="modal-1" style="cursor: pointer; color: rgba(98, 110, 153, var(--tw-text-opacity));font-weight:600;">Request API Access</label></li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/4 px-6">
+                        <ul class="mt-6 leading-loose">
+                            <li class="text-light-haiti text-sm uppercase tracking-wider font-medium mb-3">REACH OUT</li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="mailto:info@cysuite.io" target="_blank">Contact</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="mailto:press@cysuite.io" target="_blank">Press</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="/for-engineering" target="_blank">Join the Community</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="/profile">Provide Feedback</a></li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/4 px-6">
+                        <ul class="mt-6 leading-loose">
+                            <li class="text-light-haiti text-sm uppercase tracking-wider font-medium mb-3">Resources</li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="https://markgacoka.gitbook.io/cysuite/docs/cysuite" target="_blank">How to Use CySuite</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="https://markgacoka.gitbook.io/cysuite/cysuite/docs/api-documentation" target="_blank">API Documentation</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="https://markgacoka.gitbook.io/cysuite/info-security/methodology" target="_blank">Pricing</a></li>
+                            <li><a class="text-zodiac font-medium hover:text-cornflower text-sm" style="color: rgba(98, 110, 153, var(--tw-text-opacity));" href="https://markgacoka.gitbook.io/cysuite/docs/faq" target="_blank">Frequently Asked Questions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <input class="modal-state" id="modal-1" type="checkbox" />
+            <div class="modal">
+                <label class="modal__bg" for="modal-1"></label>
+                <div class="modal__inner" style="width: 60vw; height: fit-content;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <label class="modal__close d-flex align-items-center justify-content-center" for="modal-1"><i class="fa fa-times"></i></label>
+                        </div>
+                        <div class="modal-row no-gutters">
+                            <div class="modal-column d-flex">
+                                <div class="modal-body p-5 img d-flex" style="background-image:url({% static 'img/backgrounds/bg-1.jpg' %}); width: inherit;">
+                                </div>
+                            </div>
+                            <div class="modal-column d-flex">
+                                <div class="modal-body p-5 d-flex align-items-center">
+                                    <div class="text w-100 text-center py-5">
+                                        <h3 class="mb-4 api-request-h4">Fill in the details below to join the waitlist. You will be notified via email on API rollout.</h4>
+                                        <form action="#" class="code-form">
+                                            <div class="form-group d-flex">
+                                                <input type="text" class="form-control" placeholder="Name">
+                                            </div>
+                                            <div class="form-group d-flex">
+                                                <input type="text" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="form-group d-flex">
+                                                <textarea type="text" class="form-control" style="min-height: 300px;" placeholder="Why do you need API access? (Be descriptive)"></textarea>
+                                            </div>
+                                        </form>
+                                        <a href="#" class="submit-btn d-block py-3">Submit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-6 md:py-12">
+                <div class="md:flex md:items-center">
+                    <div class="flex md:w-2/5 items-center mb-6 md:mb-0">
+                            <li class="d-inline-block" style="list-style-type: none; padding-right: 1rem;"><a href="https://twitter.com/CySuite_"><i class="fab fa-twitter" style="font-size: 20px;"></i></a></li>
+                            <li class="d-inline-block" style="list-style-type: none; padding-right: 1rem;"><a href="https://medium.com/@cysuiteio"><i class="fab fa-medium" style="font-size: 20px;"></i></a></li>
+                            <li class="d-inline-block" style="list-style-type: none; padding-right: 1rem;"><a href=""><i class="fab fa-linkedin-in" style="font-size: 20px;"></i></a></li>
+                    </div>
+                    <div class="md:w-1/5 hidden md:flex md:items-center md:justify-center">
+                        <img src="{% static 'img/logo/logo_footer.png' %}">
+                    </div>
+                    <div class="md:w-2/5 text-light-haiti text-sm md:text-right">
+                        © <!-- -->2022
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/620075f4b9e4e21181bdc15f/1fr8sphc2';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <script src="{% static 'js/home.js' %}"></script>
+</html>
