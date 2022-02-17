@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,7 +34,7 @@ ROOT_URLCONF = 'endearproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -52,7 +53,7 @@ WSGI_APPLICATION = 'endearproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'postgres://shswnygjpqtqgc:a0dbf1c072c466e6d1419649f213552821de2ff320325a7941f7316969eae77d@ec2-3-228-222-169.compute-1.amazonaws.com:5432/dava92l4gaf9ef',
+        'HOST': 'ec2-3-228-222-169.compute-1.amazonaws.com',
         'NAME': 'dava92l4gaf9ef',
         'USER': 'shswnygjpqtqgc',
         'PASSWORD': 'a0dbf1c072c466e6d1419649f213552821de2ff320325a7941f7316969eae77d',
@@ -86,6 +87,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
