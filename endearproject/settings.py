@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 DEBUG = True
 SECRET_KEY = 'django-insecure-=k5m*+e3ov*!j4wvxl%9m@jrqi^(in7p6a%v4=h^rbas9$tjl$'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 INSTALLED_APPS = [
@@ -51,8 +51,12 @@ WSGI_APPLICATION = 'endearproject.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'postgres://shswnygjpqtqgc:a0dbf1c072c466e6d1419649f213552821de2ff320325a7941f7316969eae77d@ec2-3-228-222-169.compute-1.amazonaws.com:5432/dava92l4gaf9ef',
+        'NAME': 'dava92l4gaf9ef',
+        'USER': 'shswnygjpqtqgc',
+        'PASSWORD': 'a0dbf1c072c466e6d1419649f213552821de2ff320325a7941f7316969eae77d',
+        'PORT': '5432',
     }
 }
 
