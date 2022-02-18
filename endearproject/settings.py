@@ -38,7 +38,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'endearapp.Account'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
-    'cyauth.backends.CaseInsensitiveModelBackend',
+    'endearapp.backends.CaseInsensitiveModelBackend',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
