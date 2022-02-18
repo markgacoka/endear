@@ -8,17 +8,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 SECRET_KEY = 'django-insecure-=k5m*+e3ov*!j4wvxl%9m@jrqi^(in7p6a%v4=h^rbas9$tjl$'
 ALLOWED_HOSTS = ['*',]
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/dashboard'
-SOCIALACCOUNT_AUTO_SIGNUP = True
-ACCOUNT_ADAPTER = "endearproject.adapter.MyLoginAccountAdapter"
-SOCIALACCOUNT_ADAPTER = "endearproject.adapter.MySocialAccountAdapter"
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 
 # Application definition
 INSTALLED_APPS = [
@@ -42,6 +31,20 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard'
+ACCOUNT_USERNAME_REQUIRED = True
+SOCIALACCOUNT_AUTO_SIGNUP = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email_address'
+ACCOUNT_ADAPTER = "endearproject.adapter.MyLoginAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "endearproject.adapter.MySocialAccountAdapter"
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google':
@@ -83,10 +86,10 @@ WSGI_APPLICATION = 'endearproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'ec2-3-228-222-169.compute-1.amazonaws.com',
-        'NAME': 'dava92l4gaf9ef',
-        'USER': 'shswnygjpqtqgc',
-        'PASSWORD': 'a0dbf1c072c466e6d1419649f213552821de2ff320325a7941f7316969eae77d',
+        'HOST': 'ec2-52-207-74-100.compute-1.amazonaws.com',
+        'NAME': 'd2en0bj8t469sp',
+        'USER': 'eltzppwpyvnxpo',
+        'PASSWORD': 'c801a209017fa01f33525af7abe93331baec1a4e6675eb0442e693084262377d',
         'PORT': '5432',
     }
 }
