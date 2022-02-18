@@ -32,7 +32,70 @@
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
         <link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/30c21ac8e0.js"></script>
     </head>
     <body>
+        <section class="header text-center text-light">
+            <div class="background"></div>
+            <div class="inner-container">
+                <div class="header-text">
+                    <div class="header-margin">
+                        <h1 class="mt-0">Get a chance to know who has a crush on you at Minerva.</h1>
+                        <h3>Enter the emails of your crushes and match with those who are crushing on you back.</h3>
+                        <div>
+                            <a class="authenticate-button" href="#"><i class="fab fa-google"></i>&nbsp;&nbsp;Authenticate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs">
+                                <li ><a data-toggle="tab" href="#tab1" aria-selected="true" class="active">About Endear</a></li>
+                                <li><a data-toggle="tab" href="#tab2" aria-selected="false">Privacy, Security and Anonymity</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tab-content">
+                                <div id="tab1" class="tab-pane fade show active">
+                                    <div class="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="infraOne">
+                                                <a href="#collapseOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><p class="mb-0">What is Endear?</p></a>
+                                            </div>
+                                            <div id="collapseOne" class="collapse" aria-labelledby="infraOne" data-parent="#accordion">
+                                                <div class="card-body">Endear is an online platform made by Minervans for Minervans.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab2" class="tab-pane fade">
+                                    <div class="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="aboutOne">
+                                                <a href="#collapseFour"   data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                                                    <p class="mb-0">How do you ensure security of the platform?</p>
+                                                </a>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="aboutOne" data-parent="#accordion">
+                                                <div class="card-body">The emails are stored as SHA-256 hashes and cross-checked against our database of emails to verify who your crush is. If the user details are compromised, the attacker will only have access to the hash of your crush's email. The attacker will not only need to crack the hashes, but they will also need to get the salt used to generate it.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
