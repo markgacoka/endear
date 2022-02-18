@@ -1,4 +1,6 @@
 {% load static %}
+{% load account socialaccount %}
+{% get_providers as socialaccount_providers %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,7 +45,7 @@
                         <h1 class="mt-0">Get a chance to know which Minervan has a crush on you.</h1>
                         <h3>Enter the email of your crush and match with them if they have a crush on you too.</h3>
                         <div>
-                            <a class="authenticate-button" href="#"><i class="fab fa-google"></i>&nbsp;&nbsp;Authenticate</a>
+                            <a class="authenticate-button" href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i>&nbsp;&nbsp;Authenticate</a>
                         </div>
                     </div>
                 </div>
