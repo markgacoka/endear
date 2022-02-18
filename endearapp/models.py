@@ -1,4 +1,3 @@
-import uuid
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
@@ -19,19 +18,19 @@ class MyUserManager(UserManager):
             username=username,
             password=password
         )
-        user.is_staff = True
-        user.is_superuser = True
         user.first_name = 'Admin'
         user.last_name = 'Account'
+        user.username = 'admin'
+        user.is_staff = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
-class Account(AbstractBaseUser, PermissionsMixin):
-    user_id = models.UUIDField(primary_key=True, blank=False, unique=True, default=uuid.uuid4, db_index=True, editable=False)
+class Account(AbstractBaseUser, PermissionsMixin): 
     first_name = models.CharField(max_length=30, unique=False, null=True)
     last_name = models.CharField(max_length=30, unique=False, null=True)    
     username = models.CharField(max_length=64, unique=True)
-    email_address = models.EmailField(verbose_name='email_address', max_length=60, unique=True)
+    email_address = models.EmailField(primary_key=True, verbose_name='email_address', max_length=60, unique=True, blank=False, null=False)
     profile_image = models.TextField(default='default.jpeg', max_length=250, unique=False, null=False, blank=False)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="last login", auto_now=True)

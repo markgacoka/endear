@@ -13,7 +13,7 @@ class MyLoginAccountAdapter(DefaultAccountAdapter):
     def get_login_redirect_url(self, request):
         if request.user.is_authenticated:
             return settings.LOGIN_REDIRECT_URL.format(
-                id=request.user.user_id)
+                email_address=request.user.email_address)
 
 class MySocialAccountAdapter(DefaultSocialAccountAdapter):
     def pre_social_login(self, request, sociallogin):
