@@ -4,18 +4,18 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 
 class MyUserManager(UserManager):
-    def create_user(self, email, username, password=None):
+    def create_user(self, email_address, username, password=None):
         user = self.model(
-            email=self.normalize_email(email),
+            email_address=self.normalize_email(email_address),
             username=username
         )
         user.set_password(password)
         user.save()
         return user
 
-    def create_superuser(self, email, username, password):
+    def create_superuser(self, email_address, username, password):
         user = self.create_user(
-            email=self.normalize_email(email),
+            email_address=self.normalize_email(email_address),
             username=username,
             password=password
         )
@@ -31,7 +31,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=30, unique=False, null=True)
     last_name = models.CharField(max_length=30, unique=False, null=True)    
     username = models.CharField(max_length=64, unique=True)
-    email_address = models.EmailField(verbose_name='email', max_length=60, unique=True)
+    email_address = models.EmailField(verbose_name='email_address', max_length=60, unique=True)
     profile_image = models.TextField(default='default.jpeg', max_length=250, unique=False, null=False, blank=False)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
