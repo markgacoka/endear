@@ -1,4 +1,6 @@
 import os
+import django_heroku
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -6,6 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 DEBUG = True
+SITE_ID = 1
 SECRET_KEY = 'django-insecure-=k5m*+e3ov*!j4wvxl%9m@jrqi^(in7p6a%v4=h^rbas9$tjl$'
 ALLOWED_HOSTS = ['*',]
 
@@ -18,18 +21,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'endearapp',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    'social_django',
 ]
 
 AUTH_USER_MODEL = 'endearapp.Account'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
     'endearapp.backends.CaseInsensitiveModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 # Static files (CSS, JavaScript, Images)
@@ -37,21 +37,14 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 
+LOGIN_URL = '/auth/login/google-oauth2/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/dashboard'
-ACCOUNT_USERNAME_REQUIRED = True
-SOCIALACCOUNT_AUTO_SIGNUP = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email_address'
-ACCOUNT_ADAPTER = "endearproject.adapter.MyLoginAccountAdapter"
-SOCIALACCOUNT_ADAPTER = "endearproject.adapter.MySocialAccountAdapter"
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '254201803228-i548au48ad8oe7fkkivg0ss0at3vjahf.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google':
-        { 'SCOPE': ['profile', 'email'],
-        'AUTH_PARAMS': { 'access_type': 'online' }
-    }
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,14 +79,15 @@ WSGI_APPLICATION = 'endearproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'ec2-52-207-74-100.compute-1.amazonaws.com',
-        'NAME': 'd2en0bj8t469sp',
-        'USER': 'eltzppwpyvnxpo',
-        'PASSWORD': 'c801a209017fa01f33525af7abe93331baec1a4e6675eb0442e693084262377d',
+        'HOST': 'ec2-44-193-188-118.compute-1.amazonaws.com',
+        'NAME': 'ddj2b9151ec484',
+        'USER': 'sphqmpfxqsgxrf',
+        'PASSWORD': '6ae35ff624cd415bc8c98030b5cf8d6316180f9ffdbab9928f085510baf8c583',
         'PORT': '5432',
     }
 }
-
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -120,3 +114,4 @@ USE_TZ = True
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
