@@ -15,6 +15,11 @@ ACCOUNT_ADAPTER = "endearproject.adapter.MyLoginAccountAdapter"
 SOCIALACCOUNT_ADAPTER = "endearproject.adapter.MySocialAccountAdapter"
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -109,12 +114,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
