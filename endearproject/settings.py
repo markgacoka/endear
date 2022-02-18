@@ -8,6 +8,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 SECRET_KEY = 'django-insecure-=k5m*+e3ov*!j4wvxl%9m@jrqi^(in7p6a%v4=h^rbas9$tjl$'
 ALLOWED_HOSTS = ['*',]
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dashboard'
+SOCIALACCOUNT_AUTO_SIGNUP = True
+ACCOUNT_ADAPTER = "endearproject.adapter.MyLoginAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "endearproject.adapter.MySocialAccountAdapter"
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTH_USER_MODEL = 'endearapp.Account'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'cyauth.backends.CaseInsensitiveModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google':
+        { 'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': { 'access_type': 'online' }
+    }
+}
 
 # Application definition
 INSTALLED_APPS = [
@@ -18,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'endearapp',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
