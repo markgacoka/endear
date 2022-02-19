@@ -51,7 +51,18 @@
             <div id="user_crush" class="tab-container all-tabs" style="display: block;">
                 <div class="centered">
                     <div class="top-div">You have not chosen any crushes yet.</div>
-                    <div class="bottom-div"><a class="add-crush-button" href="#">Add your crush</a></div>
+                    <div class="bottom-div"><button class="trigger add-crush-button">Add your crush</button></div>
+                    <div class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">×</span>
+                            <h2 class="modal-title-1">Add your crush</h2>
+                            <h2 class="modal-title">Search for a student at Minerva University (M'23)</h2>
+                            <input class="crush-input" type="email" id="email" name="Email">
+                            <div class="results-container">
+                                <ul class="results-list" id="list"></ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="new_crushes" class="tab-container all-tabs" style="display:none">
@@ -70,7 +81,72 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </body>
     <script src="{% static 'js/index.js' %}"></script>
+    <script>
+        const people = [
+            { name: 'aaaaa', email: 'aaaaa@uni.minerva.edu'},
+            { name: 'bbbbb', email: 'bbbbb@uni.minerva.edu'},
+            { name: 'ccccc', email: 'ccccc@uni.minerva.edu'},
+        ]
+
+    function setList(results){
+        clearList()
+        for (const person of results){
+            const articleItem = document.createElement('article')
+            articleItem.classList.add("result-card");
+
+            const profileImage = document.createElement('img');
+            profileImage.src = 'https://randomuser.me/api/portraits/men/32.jpg'
+            profileImage.classList.add("result-picture");
+            
+            const container = document.createElement('div');
+            const resultName = document.createElement('span');
+            resultName.classList.add("result-name");
+            resultName.innerHTML = person.name
+            const lineBreak = document.createElement('br');
+            const resultEmail = document.createElement('span');
+            resultEmail.classList.add("result-email");
+            resultEmail.innerHTML = person.email
+
+            container.appendChild(resultName)
+            container.appendChild(lineBreak)
+            container.appendChild(resultEmail)
+
+            articleItem.appendChild(profileImage)
+            articleItem.appendChild(container)
+            list.appendChild(articleItem)
+        }
+        if (results.length === 0 ){
+            noResults()
+        }
+    }
+
+    function clearList(){
+        while (list.firstChild){
+            list.removeChild(list.firstChild)
+        }
+    }
+
+    function noResults(){
+        const error = document.createElement('li')
+        const text = document.createTextNode('No results found. Sorry!')
+        error.appendChild(text)
+        list.appendChild(error)
+    }
+
+    const searchInput = document.querySelector('.crush-input')
+    searchInput.addEventListener("input", (e) => {
+        let value = e.target.value
+        if (value && value.trim().length > 0){
+            value = value.trim().toLowerCase();
+            setList(people.filter(person => {
+                return person.name.includes(value)
+            }))
+        } else {
+            clearList()
+        }
+    })
+    </script>
 </html>

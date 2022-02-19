@@ -53,6 +53,11 @@ p {
     font-family: "Oxygen", sans-serif;
 }
 
+button {
+    display: inline-block;
+    border: none;
+}
+
 @media (min-width: 641px){
     h1{
         font-size: 44px;
@@ -352,7 +357,7 @@ profile-image{
     float: left; 
     height: 2.5rem; 
     width: auto; 
-    padding-right: 0.3rem;
+    padding: 0 1rem;
 }
   
 @media screen and (max-width: 500px) {
@@ -434,4 +439,107 @@ profile-image{
 .bottom-div {
     position: relative;
     top: 3rem;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-title-1 {
+    color: black; 
+    font-size: 20px; 
+    font-family: "Oxygen", sans-serif; 
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.modal-title {
+    color: black; 
+    font-size: 15px; 
+    font-family: "Oxygen", sans-serif; 
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem 3rem;
+    width: 24rem;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.crush-input {
+    width: 100%;
+    height: 1.5rem;
+    padding: 3px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.result-card {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 1fr;
+    align-items: center;
+    padding: 10px 00px 10px 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    border: 1px solid grey;
+    cursor: pointer;
+    background-color: #fff;
+    width: 100%;
+}
+
+.result-picture {
+    max-width: 100%;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.result-name {
+    color: #0B0D19;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 12px;
+    font-family: "Oxygen", sans-serif;
+}
+
+.result-email {
+    color: #0B0D19;
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 12px;
+    font-family: "Oxygen", sans-serif;
 }
