@@ -13,6 +13,9 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
+x = document.getElementsByClassName("tablink");
+x[0].className += " red-border"
+
 function loadCrushes(evt, newTabName) {
     var i, x, tablinks;
     x = document.getElementsByClassName("all-tabs");
