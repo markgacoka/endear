@@ -234,9 +234,9 @@ canvas{
 
 .user .profile-image {
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 55px;
+    height: 55px;
+    margin-right: 20px;
 }
 .user-info {
     margin: 0;
@@ -259,12 +259,13 @@ profile-image{
     flex-wrap: wrap;
     display: flex;
     flex-direction: column-reverse;
+    margin: 20px 0 20px 0;
 }
 
 @media (min-width:768px){
     .card {
         flex-direction: column;
-        width: 50%;
+        width: 85%;
     }
 }
 
@@ -274,12 +275,8 @@ profile-image{
 }
 
 .dashboard-header {
-    overflow: hidden;
-    background-color: #f1f1f1;
     padding: 20px 10px;
-    width: 100vw;
     float: left;
-    color: black;
     text-align: center;
     padding: 12px;
     text-decoration: none;
@@ -289,6 +286,7 @@ profile-image{
     color: white;
     display: flex;
     align-items: center;
+    width: -webkit-fill-available;
 }
   
 .dashboard-header a.logo {
@@ -310,7 +308,7 @@ profile-image{
     justify-content: space-evenly;
     align-items: center;
     display: inline-flex;
-    height: 48px;
+    height: 40px;
     min-width: 96px;
     padding: 2px 10px 0;
     text-decoration: none;
@@ -318,6 +316,31 @@ profile-image{
   
 .header-right {
     float: right;
+}
+
+.text-logo {
+    font-size: 1.6rem; 
+    font-weight: 600; 
+    font-family: 'Trebuchet MS', sans-serif; 
+    color: #fff; 
+    display: inline-block; 
+    vertical-align: middle;
+}
+
+.dashboard-header-text {
+    float: left; 
+    height: 2rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: 
+    center; width: 80vw;
+}
+
+.logo {
+    float: left; 
+    height: 2.5rem; 
+    width: auto; 
+    padding-right: 0.3rem;
 }
   
 @media screen and (max-width: 500px) {
@@ -329,4 +352,57 @@ profile-image{
     .header-right {
         float: none;
     }
+}
+
+.tab-row:after, tab-row:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tab-row {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-width {
+    width: 20vw;
+}
+
+.tab-title {
+    float: left;
+    width: 100%;
+    padding: 0 8px;
+    color: #000;
+    font-family: "Oxygen", sans-serif;
+    border-bottom: 6px solid #ccc !important;
+    padding: 8px 16px !important;
+}
+
+.tab-title:hover {
+    color: #000!important;
+    background-color: #f1f1f1 !important;
+}
+
+.tab-container:before, tab-container:after {
+    content: ""; 
+    display: table;
+    clear: both;
+}
+
+.tab-container {
+    height: 80vw;
+}
+
+.red-border {
+    border-color: #f44336 !important;
+}
+
+.middle-section {
+    padding: 2rem;
+    width: 80vw;
+    height: 20vh;
+    margin: auto;
+    display: grid;
 }
