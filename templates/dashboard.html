@@ -1,14 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Dashboard</title>
+        <link rel="icon" href="{% static 'img/endear_logo.ico' %}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="canonical" href="https://endear.herokuapp.com/dashboard" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta property="og:url" content="https://endear.herokuapp.com/" />
+        <meta property="referrer" content="no-referrer-when-downgrade" />
+        <meta property="HandheldFriendly" content="True" />
+        <meta property="MobileOptimized" content="360" />
+        <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+        <meta name="robots" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="description" content="Dashboard for the Endear website"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Dashboard | Endear." />
+        <meta property="og:description" content="Find love around the world with seven stops."/>
+        <meta property="og:image" content="{% static 'img/endear_logo.png' %}"/>
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <meta property="og:site_name" content="Endear" />
+        <meta property="keywords" content="love, matchmaking, university, college, crush" />
+        <meta name="twitter:title" content="Find love around the world with seven stops" />
+        <meta name="twitter:image" content="{% static 'img/endear_logo.png' %}"/>
+        <meta property="og:image:type" content="image/png" />
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     </head>
     <body>
-        {% if user.is_authenticated %}
-            <p>Logged in as: {{ user.username }}</p>
-            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-        {% else %}
-            <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">Login</a>
-        {% endif %}
+        <div class="dashboard-header">
+            <img class="logo" style="float:left; height: 2.5rem; width: auto; padding-right: 0.3rem;" src="{% static 'img/endear_logo_white.png' %}" alt="endear logo" />
+            <div style="float: left; height: 2rem; display: flex; align-items: center; justify-content: center; width: 80vw;">
+                <p style="font-size: 1.6rem; font-weight: 600; font-family: 'Trebuchet MS', sans-serif; color: #fff; display: inline-block; vertical-align: middle;">endear</p>
+            </div>
+            <div class="header-right">
+                <a class="logout-button" href="{% url 'logout' %}">Log Out</a>
+            </div>
+        </div>
+        <div style="height: 100vh; background-color: #1B1F3C;">
+            {% if user.is_authenticated %}
+                <p>Logged in as: {{ user.username }}</p>
+                <a style="color: white;" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a style="color: white;" href="{% url 'social:begin' 'google-oauth2' %}">Login</a>
+            {% endif %}
+        </div>
     </body>
 </html>
