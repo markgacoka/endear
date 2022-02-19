@@ -367,7 +367,7 @@ profile-image{
 }
 
 .tab-width {
-    width: 20vw;
+    width: 30vw;
 }
 
 .tab-title {
@@ -377,7 +377,7 @@ profile-image{
     color: #000;
     font-family: "Oxygen", sans-serif;
     border-bottom: 6px solid #ccc !important;
-    padding: 8px 16px !important;
+    padding: 8px 0 !important;
 }
 
 .tab-title:hover {
@@ -393,10 +393,11 @@ profile-image{
 
 .tab-container {
     height: 80vw;
+    padding: 0rem 0rem 0 10rem;
 }
 
 .red-border {
-    border-color: #f44336 !important;
+    border-color: #FE3447 !important;
 }
 
 .middle-section {
@@ -405,4 +406,14 @@ profile-image{
     height: 20vh;
     margin: auto;
     display: grid;
+}
+
+.centered {
+    width: 1000px;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Oxygen", sans-serif;
 }
