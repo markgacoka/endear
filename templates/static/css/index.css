@@ -34,6 +34,25 @@ h3 {
     padding-right: 72px;
 }
 
+h5{
+    margin: 0;
+    color: #fff;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: "Oxygen", sans-serif;
+}
+
+small{
+    color: #fff;
+    font-size: 80%;
+    font-family: "Oxygen", sans-serif;
+}
+
+p {
+    color: #fff;
+    font-family: "Oxygen", sans-serif;
+}
+
 @media (min-width: 641px){
     h1{
         font-size: 44px;
@@ -206,4 +225,108 @@ canvas{
     font-size: 16px;
     font-family: "Oxygen", sans-serif;
     font-weight: 400;
+}
+
+.user {
+    display: flex;
+    margin-top: auto;
+}
+
+.user .profile-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.user-info {
+    margin: 0;
+    color: #545d7a;
+}
+
+profile-image{
+    border-style: none;
+    border-style: solid;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+}
+
+.card {
+    --bg-opacity: 1;
+    background-color: #1B1F3C;
+    border-radius: 0.5rem;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@media (min-width:768px){
+    .card {
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+.inner-card {
+    width: 100%;
+    padding: 1rem;
+}
+
+.dashboard-header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+    width: 100vw;
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    background-color: #0B0D19;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+  
+.dashboard-header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+    
+.dashboard-header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.logout-button {
+    font-size: 16px;
+    font-family: "Oxygen", sans-serif;
+    color: #1B1F58;
+    background-color: #fff;
+    cursor: pointer;
+    justify-content: space-evenly;
+    align-items: center;
+    display: inline-flex;
+    height: 48px;
+    min-width: 96px;
+    padding: 2px 10px 0;
+    text-decoration: none;
+}
+  
+.header-right {
+    float: right;
+}
+  
+@media screen and (max-width: 500px) {
+    .dashboard-header a {
+        float: none;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
 }
