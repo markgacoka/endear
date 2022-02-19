@@ -31,21 +31,42 @@
     </head>
     <body>
         <div class="dashboard-header">
-            <img class="logo" style="float:left; height: 2.5rem; width: auto; padding-right: 0.3rem;" src="{% static 'img/endear_logo_white.png' %}" alt="endear logo" />
-            <div style="float: left; height: 2rem; display: flex; align-items: center; justify-content: center; width: 80vw;">
-                <p style="font-size: 1.6rem; font-weight: 600; font-family: 'Trebuchet MS', sans-serif; color: #fff; display: inline-block; vertical-align: middle;">endear</p>
+            <img class="logo" src="{% static 'img/endear_logo_white.png' %}" alt="endear logo" />
+            <div class="dashboard-header-text">
+                <p class="text-logo">endear</p>
             </div>
             <div class="header-right">
                 <a class="logout-button" href="{% url 'logout' %}">Log Out</a>
             </div>
         </div>
-        <div style="height: 100vh; background-color: #1B1F3C;">
-            {% if user.is_authenticated %}
-                <p>Logged in as: {{ user.username }}</p>
-                <a style="color: white;" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a style="color: white;" href="{% url 'social:begin' 'google-oauth2' %}">Login</a>
-            {% endif %}
+        <div class="middle-section">
+            <div class="tab-row">
+                <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'user_crush');">
+                    <div class="tab-title tablink">Your crushes</div>
+                </a>
+                <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'new_crushes');">
+                    <div class="tab-title tablink">New Crushes</div>
+                </a>
+            </div>
+            <div id="user_crush" class="tab-container all-tabs" style="display:none">
+                <h2>Crushes</h2>
+            </div>
+
+            <div id="new_crushes" class="tab-container all-tabs" style="display:none">
+                <div class="card">
+                    <div class="inner-card">
+                        <div class="user">
+                            <img class="profile-image" src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
+                            <div class="user-info">
+                                <h5>Hidden</h5>
+                                <small>19th February, 2022</small>
+                                <p>xxxxxxxxx@uni.minerva.edu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
+    <script src="{% static 'js/index.js' %}"></script>
 </html>

@@ -12,3 +12,17 @@ for (i = 0; i < coll.length; i++) {
     }
     });
 }
+
+function loadCrushes(evt, newTabName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("all-tabs");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" red-border", "");
+    }
+    document.getElementById(newTabName).style.display = "block";
+    evt.currentTarget.firstElementChild.className += " red-border";
+}
