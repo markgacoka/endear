@@ -85,11 +85,10 @@
     </body>
     <script src="{% static 'js/index.js' %}"></script>
     <script>
-        const people = [
-            { name: 'aaaaa', email: 'aaaaa@uni.minerva.edu'},
-            { name: 'bbbbb', email: 'bbbbb@uni.minerva.edu'},
-            { name: 'ccccc', email: 'ccccc@uni.minerva.edu'},
-        ]
+    var people = []
+    fetch('../../static/people.txt')
+        .then(response => response.json())
+        .then(json => people = json);
 
     function setList(results){
         clearList()
@@ -104,7 +103,8 @@
             const container = document.createElement('div');
             const resultName = document.createElement('span');
             resultName.classList.add("result-name");
-            resultName.innerHTML = person.name
+            name = person.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+            resultName.innerHTML = name
             const lineBreak = document.createElement('br');
             const resultEmail = document.createElement('span');
             resultEmail.classList.add("result-email");
