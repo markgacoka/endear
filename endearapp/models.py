@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 
@@ -59,3 +60,19 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
+
+
+class CrushModel(models.Model):
+    original_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="crushes", on_delete=models.CASCADE)
+    crush_name = models.TextField(max_length=120, unique=True, null=False, blank=False)
+    crush_email = models.TextField(max_length=120, unique=True, null=False, blank=False)
+    record_date = models.DateField()
+
+    class Meta():
+        db_table = 'crush'
+        verbose_name = _('crush')
+        verbose_name_plural = _('crushes')
+        ordering = ("original_user", "crush_name", "crush_email", "record_date")
+
+    def __str__(self):
+        return self.original_user.first_name + 'Crushes'
