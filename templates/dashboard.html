@@ -39,6 +39,9 @@
                 <a class="logout-button" href="{% url 'logout' %}">Log Out</a>
             </div>
         </div>
+        <div class="name-container">
+            <p>Welcome {{user.first_name}}&nbsp;{{user.last_name}}</p>
+        </div>
         <div class="middle-section">
             <div class="tab-row">
                 <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'user_crush');">
@@ -97,6 +100,9 @@
             articleItem.classList.add("result-card");
             articleItem.onclick = function(event) {
                 modal.classList.toggle("show-modal");
+                console.log(person.email);
+                document.getElementsByClassName('crush-input')[0].value = ''
+                clearList();
             }
 
             const profileImage = document.createElement('img');
