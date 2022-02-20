@@ -88,78 +88,26 @@
     </body>
     <script src="{% static 'js/index.js' %}"></script>
     <script>
-    var people = []
-    fetch('../../static/people.txt')
-        .then(response => response.json())
-        .then(json => people = json);
+        var people = []
 
-    function setList(results){
-        clearList()
-        for (const person of results){
-            const articleItem = document.createElement('button')
-            articleItem.classList.add("result-card");
-            articleItem.onclick = function(event) {
-                modal.classList.toggle("show-modal");
-                console.log(person.email);
-                document.getElementsByClassName('crush-input')[0].value = ''
-                clearList();
+        fetch('../../static/people.txt')
+            .then(response => response.json())
+            .then(json => people = json);
+
+        const searchInput = document.querySelector('.crush-input')
+        searchInput.addEventListener("input", (e) => {
+            let value = e.target.value
+            if (value && value.trim().length > 0){
+                value = value.trim().toLowerCase();
+                var token = '{{csrf_token}}';
+                var crush_endpoint = "{% url 'crush' %}"
+                var profile = '{% static 'img/avatar.jpg' %}'
+                setList(people.filter(person => {
+                    return person.name.includes(value)
+                }), token, crush_endpoint, profile)
+            } else {
+                clearList()
             }
-
-            const profileImage = document.createElement('img');
-            profileImage.src = '{% static 'img/avatar.jpg' %}'
-            profileImage.classList.add("result-picture");
-            
-            const container = document.createElement('div');
-            const resultName = document.createElement('span');
-            resultName.classList.add("result-name");
-            name = person.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
-            resultName.innerHTML = name
-            const lineBreak = document.createElement('br');
-            const resultEmail = document.createElement('span');
-            resultEmail.classList.add("result-email");
-            resultEmail.innerHTML = person.email
-
-            container.appendChild(resultName)
-            container.appendChild(lineBreak)
-            container.appendChild(resultEmail)
-
-            articleItem.appendChild(profileImage)
-            articleItem.appendChild(container)
-            list.appendChild(articleItem)
-        }
-        if (results.length === 0 ){
-            noResults()
-        }
-    }
-
-    function clearList(){
-        while (list.firstChild){
-            list.removeChild(list.firstChild)
-        }
-    }
-
-    function noResults(){
-        const error_container = document.createElement('div');
-        error_container.classList.add("error-message");
-        const error_text = document.createElement('span')
-        error_text.classList.add("error-text");
-        const text = document.createTextNode('No results found. Sorry!')
-        error_text.appendChild(text)
-        error_container.appendChild(error_text)
-        list.appendChild(error_container)
-    }
-
-    const searchInput = document.querySelector('.crush-input')
-    searchInput.addEventListener("input", (e) => {
-        let value = e.target.value
-        if (value && value.trim().length > 0){
-            value = value.trim().toLowerCase();
-            setList(people.filter(person => {
-                return person.name.includes(value)
-            }))
-        } else {
-            clearList()
-        }
-    })
+        })
     </script>
 </html>
