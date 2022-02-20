@@ -567,3 +567,11 @@ profile-image{
     line-height: 20px;
     text-shadow: 1px 1px rgba(250,250,250,.3);
 }
+
+.name-container {
+    background-color: #1B1F3C;
+    height: 1rem;
+    align-items: center;
+    display: flex;
+    padding: 1rem;
+}
