@@ -478,6 +478,8 @@ profile-image{
     background-color: white;
     padding: 2rem 3rem;
     width: 24rem;
+    max-height: 80vh;
+    overflow: auto;
 }
 
 .close-button {
@@ -502,7 +504,7 @@ profile-image{
 }
 
 .crush-input {
-    width: 100%;
+    width: -webkit-fill-available;
     height: 1.5rem;
     padding: 3px;
     margin-top: 20px;
@@ -520,6 +522,7 @@ profile-image{
     cursor: pointer;
     background-color: #fff;
     width: 100%;
+    text-align: left;
 }
 
 .result-picture {
@@ -542,4 +545,25 @@ profile-image{
     font-size: 13px;
     margin-left: 12px;
     font-family: "Oxygen", sans-serif;
+}
+
+.error-message {
+    background-color: #fce4e4;
+    border: 1px solid #fcc2c3;
+    float: left;
+    padding: 10px;
+    height: 0.5rem;
+    margin: 10px 0;
+    width: -webkit-fill-available;
+    align-items: center;
+    display: flex;
+}
+
+.error-text {
+    color: #cc0033;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    text-shadow: 1px 1px rgba(250,250,250,.3);
 }
