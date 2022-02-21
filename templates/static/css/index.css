@@ -428,7 +428,9 @@ profile-image{
 }
 
 .tab-container {
-    padding: 20px 10rem;
+    padding: 20px 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .red-border {
@@ -455,9 +457,16 @@ profile-image{
     min-height: 230px;
     height: 30vh;
     float: left;
-    display: flex;
+    display: grid;
     margin: 20px;
+    width: 300px;
     flex-direction: row;
+}
+
+@media (max-width: 910px) {
+    .crush-div {
+        width: 60vw;
+    }
 }
 
 .top-div {
@@ -628,9 +637,10 @@ profile-image{
 }
 
 .crush-list {
-    width: 100%;
+    width: max-content;
     flex-direction: row;
     justify-content: center;
+    padding: 1rem;
 }
 
 .profile-card {
