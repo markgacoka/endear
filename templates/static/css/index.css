@@ -643,7 +643,6 @@ profile-image{
 }
 
 .crush-list {
-    width: max-content;
     flex-direction: row;
     justify-content: center;
     padding: 1rem;
