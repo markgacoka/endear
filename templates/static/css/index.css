@@ -430,10 +430,8 @@ profile-image{
 }
 
 .tab-container {
-    align-items: center;
-    justify-content: center;
-    display: flex;
     width: 100%;
+    justify-content: center;
 }
 
 .red-border {

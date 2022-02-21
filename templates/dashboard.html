@@ -51,7 +51,11 @@
                     <div class="tab-title tablink">New Crushes</div>
                 </a>
             </div>
+            {% if crushes|length == 1 or crushes|length == 2 %}
+            <div id="user_crush" class="tab-container all-tabs" style="display: block; justify-content: flex-start !important;">
+            {% else%}
             <div id="user_crush" class="tab-container all-tabs" style="display: flex;">
+            {% endif %}
                 {% if not crushes %}
                 <div class="centered">
                     <div class="top-div">You have not chosen any crushes yet.</div>
@@ -69,7 +73,11 @@
                     </div>
                 </div>
                 {% else %}
+                {% if crushes|length == 1 or crushes|length == 2 %}
+                <div class="crush-list" style="padding: 0 7rem !important;">
+                {% else %}
                 <div class="crush-list">
+                {% endif %}
                     <div class="upper-div">
                         {% for name, email in crushes.items %}
                         <div class="crush-div">
