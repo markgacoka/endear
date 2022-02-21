@@ -71,24 +71,26 @@
                 </div>
                 {% else %}
                 <div class="crush-list">
-                    {% for name, email in crushes.items %}
-                    <div class="crush-div">
-                        <div class="profile-card">
-                            <div class="multi-button">
-                                <button class="fas fa-heart"></button>
-                            </div>
-                            <div class="crush-container">
-                                <div class="container-profile">
-                                    <img class="container-image" src="{% static 'img/avatar.jpg' %}" alt="Minervan photo">
-                                    <div class="container-profile-text">
-                                        <h5>{{ name }}</h5>
-                                        <p>{{ email }}</p>
+                    <div class="upper-div">
+                        {% for name, email in crushes.items %}
+                        <div class="crush-div">
+                            <div class="profile-card">
+                                <div class="multi-button">
+                                    <button class="fas fa-heart"></button>
+                                </div>
+                                <div class="crush-container">
+                                    <div class="container-profile">
+                                        <img class="container-image" src="{% static 'img/avatar.jpg' %}" alt="Minervan photo">
+                                        <div class="container-profile-text">
+                                            <h5>{{ name }}</h5>
+                                            <p>{{ email }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                     <div class="bottom-div-2"><button class="trigger add-crush-button-2">Add your crush</button></div>
                     <div class="modal">
                         <div class="modal-content">
