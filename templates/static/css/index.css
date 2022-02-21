@@ -265,21 +265,23 @@ profile-image{
     flex-wrap: wrap;
     display: flex;
     margin: auto;
+    float: left;
+    display: flex;
 }
 
 .card-container {
     padding: 1.5rem;
+    width: 65vw;
 }
 
 @media (min-width:768px){
     .card {
         flex-direction: column;
-        width: 85%;
+        width: 60vw;
     }
 }
 
 .inner-card {
-    width: 100%;
     padding: 1rem;
 }
 
@@ -328,7 +330,7 @@ profile-image{
     display: inline-flex;
     height: 40px;
     min-width: 96px;
-    width: 65vw;
+    width: 60vw;
     padding: 1.5rem 10px;
     margin: 0;
     clear: both;
@@ -431,6 +433,8 @@ profile-image{
     padding: 20px 2rem;
     align-items: center;
     justify-content: center;
+    display: flex;
+    width: 100%;
 }
 
 .red-border {
@@ -458,7 +462,7 @@ profile-image{
     height: 30vh;
     float: left;
     display: grid;
-    margin: 20px;
+    margin: 20px 20px 20px 0;
     width: 300px;
     flex-direction: row;
 }
@@ -479,9 +483,7 @@ profile-image{
 }
 
 .bottom-div-2 {
-    position: relative;
     padding-bottom: 2rem;
-    text-align: center
 }
 
 .modal {
@@ -652,13 +654,6 @@ profile-image{
     width: 100%;
 }
 
-@media (min-width: 1519px){
-    .upper-div{
-        justify-content: center;
-        display: flex;
-    }
-}
-
 .profile-card {
     --background: #000;
     --text: #fff;
@@ -674,7 +669,7 @@ profile-image{
     border-radius: 100%;
     width: 0rem;
     height: 0rem;
-    transform: translate(-50%, -50%);
+    translate(-15%, -15%)
     transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
 }
 .profile-card .container {

@@ -1,21 +1,37 @@
 function setList(results, token, crush_endpoint, profile){
     clearList()
     for (const person of results){
-        const articleItem = document.createElement('button')
-        articleItem.classList.add("result-card");
-        articleItem.onclick = function(event) {
-           
-            var request_name = person.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", crush_endpoint, true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.setRequestHeader('X-CSRFToken', token);
-            xhr.send(`name=${request_name}&email=${person.email}`);
+        var request_name = person.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+        var userForm = document.createElement('form');
+        userForm.method = 'post';
+        var listInput1 = document.createElement('input')
+        var listInput2 = document.createElement('input')
+        var listInput3 = document.createElement('input')
+        listInput1.type = 'hidden';
+        listInput1.name = 'name';
+        listInput1.value = request_name;
+
+        listInput2.type = 'hidden';
+        listInput2.name = 'email';
+        listInput2.value = person.email;
+
+        listInput3.type = 'hidden';
+        listInput3.name = 'csrfmiddlewaretoken';
+        listInput3.value = token;
+        
+        userForm.appendChild(listInput1);
+        userForm.appendChild(listInput2);
+        userForm.appendChild(listInput3);
+
+        const user_button = document.createElement('button')
+        user_button.classList.add("result-card");
+        user_button.onclick = function(event) {
+            userForm.submit();
             modal.classList.toggle("show-modal");
             document.getElementsByClassName('crush-input')[0].value = ''
             clearList();
         }
-
+        
         const profileImage = document.createElement('img');
         profileImage.src = profile
         profileImage.classList.add("result-picture");
@@ -34,9 +50,10 @@ function setList(results, token, crush_endpoint, profile){
         container.appendChild(lineBreak)
         container.appendChild(resultEmail)
 
-        articleItem.appendChild(profileImage)
-        articleItem.appendChild(container)
-        list.appendChild(articleItem)
+        user_button.appendChild(profileImage)
+        user_button.appendChild(container)
+        userForm.appendChild(user_button);
+        list.appendChild(userForm)
     }
     if (results.length === 0 ){
         noResults()
@@ -67,10 +84,10 @@ for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.display === "block") {
+    if (content.style.display === "flex") {
         content.style.display = "none";
     } else {
-        content.style.display = "block";
+        content.style.display = "flex";
     }
     });
 }
@@ -88,7 +105,7 @@ function loadCrushes(evt, newTabName) {
     for (i = 0; i < x.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" red-border", "");
     }
-    document.getElementById(newTabName).style.display = "block";
+    document.getElementById(newTabName).style.display = "flex";
     evt.currentTarget.firstElementChild.className += " red-border";
 }
 
