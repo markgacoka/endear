@@ -64,8 +64,8 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 class CrushModel(models.Model):
     original_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="crushes", on_delete=models.CASCADE)
-    crush_name = models.TextField(max_length=120, unique=True, null=False, blank=False)
-    crush_email = models.TextField(max_length=120, unique=True, null=False, blank=False)
+    crush_name = models.TextField(max_length=120, unique=False, null=False, blank=False)
+    crush_email = models.TextField(max_length=120, unique=False, null=False, blank=False)
     record_date = models.DateField()
 
     class Meta():
