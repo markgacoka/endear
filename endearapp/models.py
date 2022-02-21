@@ -32,7 +32,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, unique=False, null=True)    
     username = models.CharField(max_length=64, unique=True)
     email = models.EmailField(primary_key=True, verbose_name='email', max_length=60, unique=True, blank=False, null=False)
-    profile_image = models.TextField(default='default.jpeg', max_length=250, unique=False, null=False, blank=False)
+    profile_image = models.TextField(default='/static/img/avatar.jpg', max_length=250, unique=False, null=False, blank=False)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
     is_staff = models.BooleanField(default=False)

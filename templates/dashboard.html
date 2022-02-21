@@ -27,7 +27,6 @@
         <meta name="twitter:title" content="Find love around the world with seven stops" />
         <meta name="twitter:image" content="{% static 'img/endear_logo.png' %}"/>
         <meta property="og:image:type" content="image/png" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.css">
         <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     </head>
     <body>
@@ -76,11 +75,15 @@
                         <div class="crush-div">
                             <div class="profile-card">
                                 <div class="multi-button">
-                                    <button class="fas fa-heart"></button>
+                                    <form id="delete-crush" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="delete" value="{{email}}"/>
+                                        <button onclick="document.getElementById('delete-crush').submit();">x</button>
+                                    </form>
                                 </div>
                                 <div class="crush-container">
                                     <div class="container-profile">
-                                        <img class="container-image" src="{% static 'img/avatar.jpg' %}" alt="Minervan photo">
+                                        <img class="container-image" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ user.profile_image }}" alt="Minervan photo">
                                         <div class="container-profile-text">
                                             <h5>{{ name }}</h5>
                                             <p>{{ email }}</p>
@@ -137,9 +140,9 @@
             let value = e.target.value
             if (value && value.trim().length > 0){
                 value = value.trim().toLowerCase();
-                var token = '{{csrf_token}}';
-                var crush_endpoint = "{% url 'crush' %}"
+                var crush_endpoint = "{% url 'dashboard' %}"
                 var profile = '{% static 'img/avatar.jpg' %}'
+                var token = '{{ csrf_token }}';
                 setList(people.filter(person => {
                     return person.name.includes(value)
                 }), token, crush_endpoint, profile)
