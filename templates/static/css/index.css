@@ -328,7 +328,7 @@ profile-image{
     display: inline-flex;
     height: 40px;
     min-width: 96px;
-    width: 60vw;
+    width: 65vw;
     padding: 1.5rem 10px;
     margin: 0;
     clear: both;
@@ -476,6 +476,12 @@ profile-image{
 .bottom-div {
     position: relative;
     top: 3rem;
+}
+
+.bottom-div-2 {
+    position: relative;
+    padding-bottom: 2rem;
+    text-align: center
 }
 
 .modal {
