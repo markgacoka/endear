@@ -330,7 +330,7 @@ profile-image{
     display: inline-flex;
     height: 40px;
     min-width: 96px;
-    width: 60vw;
+    width: calc(100% - 20px);
     padding: 1.5rem 10px;
     margin: 0;
     clear: both;
@@ -430,7 +430,6 @@ profile-image{
 }
 
 .tab-container {
-    padding: 20px 2rem;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -652,6 +651,20 @@ profile-image{
 
 .upper-div {
     width: 100%;
+}
+
+@media (max-width: 907px){
+    .upper-div{
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem;
+        align-items: center;
+        justify-content: center;
+        display: grid;
+    }
+    .bottom-div-2 {
+        margin-left: 30px;
+    }
 }
 
 .profile-card {
