@@ -97,7 +97,11 @@ const trigger = document.querySelector(".trigger");
 const closeButton = document.querySelector(".close-button");
 
 function toggleModal() {
-    modal.classList.toggle("show-modal");
+    if (modal) {
+        modal.classList.toggle("show-modal");
+    } else {
+        console.log('Error: modal does not exist');
+    }
 }
 
 function windowOnClick(event) {
@@ -106,6 +110,6 @@ function windowOnClick(event) {
     }
 }
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+trigger && trigger.addEventListener('click', toggleModal, false);
+closeButton && closeButton.addEventListener('click', toggleModal, false);
+window && window.addEventListener('click', windowOnClick, false);

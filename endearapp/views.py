@@ -8,7 +8,11 @@ def home(request):
     return render(request, 'index.html', context)
 
 def dashboard(request):
-    context = {}
+    context, crushes = {}, {}
+    user_crushes = CrushModel.objects.filter(original_user=request.user).values('crush_name','crush_email')
+    for crush in user_crushes:
+        crushes[crush['crush_name']] = crushes.get(crush['crush_name'], crush['crush_email'])
+    context['crushes'] = crushes
     return render(request, 'dashboard.html', context)
 
 def add_crush(request):
