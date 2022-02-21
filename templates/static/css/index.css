@@ -649,6 +649,17 @@ profile-image{
     padding: 1rem;
 }
 
+.upper-div {
+    width: 100%;
+}
+
+@media (min-width: 1519px){
+    .upper-div{
+        justify-content: center;
+        display: flex;
+    }
+}
+
 .profile-card {
     --background: #000;
     --text: #fff;
