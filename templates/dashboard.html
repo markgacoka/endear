@@ -28,6 +28,7 @@
         <meta name="twitter:image" content="{% static 'img/endear_logo.png' %}"/>
         <meta property="og:image:type" content="image/png" />
         <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     </head>
     <body>
         <div class="dashboard-header">
@@ -51,11 +52,7 @@
                     <div class="tab-title tablink">New Crushes</div>
                 </a>
             </div>
-            {% if crushes|length == 1 or crushes|length == 2 %}
-            <div id="user_crush" class="tab-container all-tabs" style="display: block;">
-            {% else%}
             <div id="user_crush" class="tab-container all-tabs" style="display: flex;">
-            {% endif %}
                 {% if not crushes %}
                 <div class="centered">
                     <div class="top-div">You have not chosen any crushes yet.</div>
@@ -130,6 +127,14 @@
                                     <small>Date: {{ value.1 }}</small>
                                     <p>Email: {{ value.0 }}</p>
                                 </div>
+                                <div class="calendar-invite">
+                                    <a style="text-decoration: none;" target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Date+with+{{key}}&details=Would+you+like+to+go+out+on+a+date+since+we+matched+on+Endear?">
+                                        <time class="icon">
+                                            <strong>Calendar</strong>
+                                            <i class="fab fa-google google-logo"></i>
+                                        </time>
+                                    </a>
+                                </div
                             </div>
                         </div>
                     </div>

@@ -249,13 +249,12 @@ canvas{
     color: #545d7a;
 }
 
-profile-image{
+.profile-image{
     border-style: none;
     border-style: solid;
     max-width: 100%;
     height: auto;
     display: block;
-    vertical-align: middle;
 }
 
 .card {
@@ -278,7 +277,7 @@ profile-image{
 @media (max-width:768px){
     .card {
         flex-direction: column;
-        width: 100%%;
+        width: 100%;
     }
     .card-container {
         width: 100%;
@@ -684,7 +683,7 @@ profile-image{
     border-radius: 100%;
     width: 0rem;
     height: 0rem;
-    translate(-15%, -15%)
+    translate: (-15%, -15%);
     transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
 }
 .profile-card .container {
