@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login Error</title>
+    </head>
+    <body>
+        {% if messages %}
+           {% for message in messages %}
+               {{message}}
+            {% endfor %}
+        {% endif %}
+        Go back <a href="/">home.</a>
+    </body>
+</html>
