@@ -28,8 +28,9 @@ def dashboard(request):
                 CrushModel.objects.filter(crush_email__iexact=request.POST.get('delete')).delete()
                 return redirect('/dashboard/')
             elif 'name' in request.POST and 'email' in request.POST:
-                if request.POST.get('name') in crushes:
-                    pass
+                if request.POST.get('email') == request.user.email:
+                    context['crushes'] = crushes
+                    return render(request, 'dashboard.html', context)
                 if len(user_crushes) < 3: 
                     response_data = {"name": request.POST.get('name'), "email": request.POST.get('email')}
                     crush_model = CrushModel.objects.create(
