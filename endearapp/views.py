@@ -9,9 +9,14 @@ def home(request):
 
 def dashboard(request):
     context, crushes = {}, {}
+    new_crushes = []
     user_crushes = CrushModel.objects.filter(original_user=request.user).values('crush_name','crush_email')
     for crush in user_crushes:
         crushes[crush['crush_name']] = crushes.get(crush['crush_name'], crush['crush_email'])
+    new_crush_model = CrushModel.objects.filter(crush_email=request.user.email).values('original_user_id', 'record_date', 'original_name')
+    for email in new_crush_model:
+        new_crushes = {email['original_name']: [email['original_user_id'], email['record_date'].strftime('%d-%m-%Y'), email['original_user_id'] in crushes.values()]}
+    
     if request.method == 'POST':
         if 'delete' in request.POST:
             CrushModel.objects.filter(crush_email__iexact=request.POST.get('delete')).delete()
@@ -23,6 +28,7 @@ def dashboard(request):
                 response_data = {"name": request.POST.get('name'), "email": request.POST.get('email')}
                 crush_model = CrushModel.objects.create(
                     original_user = request.user,
+                    original_name = request.user.first_name + ' ' + request.user.last_name,
                     crush_name = response_data['name'],
                     crush_email = response_data['email'],
                     record_date = datetime.datetime.now())
@@ -35,6 +41,7 @@ def dashboard(request):
             return render(request, 'dashboard.html', context)
     else:
         context['crushes'] = crushes
+        context['new_crushes'] = new_crushes
     return render(request, 'dashboard.html', context)
 
 def solution(request):

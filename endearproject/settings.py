@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'endearproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'ec2-44-193-188-118.compute-1.amazonaws.com',
-        'NAME': 'ddj2b9151ec484',
-        'USER': 'sphqmpfxqsgxrf',
-        'PASSWORD': '6ae35ff624cd415bc8c98030b5cf8d6316180f9ffdbab9928f085510baf8c583',
+        'HOST': 'ec2-3-228-222-169.compute-1.amazonaws.com',
+        'NAME': 'd87b6ukgbr2f6h',
+        'USER': 'miajkareedhtgz',
+        'PASSWORD': 'a54ebc0d6cf046b6e3d3624a20711072b8e53b95c0787d9556f63fb139346877',
         'PORT': '5432',
     }
 }

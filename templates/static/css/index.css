@@ -264,10 +264,10 @@ profile-image{
     border-radius: 0.5rem;
     flex-wrap: wrap;
     display: flex;
-    margin: auto;
+    margin: 0 0 0 40px;
     float: left;
     display: flex;
-    width: 60vw;
+    width: 100%%
 }
 
 .card-container {
@@ -649,6 +649,7 @@ profile-image{
     flex-direction: row;
     justify-content: center;
     padding: 1rem;
+    width: 100%;
 }
 
 .upper-div {
