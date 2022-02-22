@@ -7,14 +7,14 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
-DEBUG = True
+DEBUG = 1
 SITE_ID = 1
 SECRET_KEY = 'django-insecure-=k5m*+e3ov*!j4wvxl%9m@jrqi^(in7p6a%v4=h^rbas9$tjl$'
 ALLOWED_HOSTS = ['*',]
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,9 +40,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'templates/static')]
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
+LOGOUT_URL = 'logout'
+LOGIN_ERROR_URL= '/error/'
+SOCIAL_AUTH_LOGIN_ERROR_URL='/error/'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '254201803228-i548au48ad8oe7fkkivg0ss0at3vjahf.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS = ['uni.minerva.edu']
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -54,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'endearapp.middleware.CustomSocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'endearproject.urls'

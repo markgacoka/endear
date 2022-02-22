@@ -36,3 +36,11 @@ def dashboard(request):
     else:
         context['crushes'] = crushes
     return render(request, 'dashboard.html', context)
+
+def solution(request):
+    context = {}
+    return render(request, 'solution.html', context)
+
+def login_error(request):
+    context = {}
+    return render(request, 'error.html', context)
