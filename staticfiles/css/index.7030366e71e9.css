@@ -240,16 +240,22 @@ canvas{
 
 .user .profile-image {
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     margin-right: 20px;
 }
 .user-info {
     margin: 0;
     color: #545d7a;
+    width: 100%;
 }
 
-profile-image{
+.calendar-invite {
+    display: flex;
+    float: right;
+}
+
+.profile-image{
     border-style: none;
     border-style: solid;
     max-width: 100%;
@@ -264,10 +270,11 @@ profile-image{
     border-radius: 0.5rem;
     flex-wrap: wrap;
     display: flex;
-    margin: auto;
+    margin: 0 0 0 40px;
     float: left;
     display: flex;
-    width: 60vw;
+    width: 100%;
+    flex-direction: column;
 }
 
 .card-container {
@@ -276,10 +283,6 @@ profile-image{
 }
 
 @media (max-width:768px){
-    .card {
-        flex-direction: column;
-        width: 100%%;
-    }
     .card-container {
         width: 100%;
     }
@@ -468,7 +471,7 @@ profile-image{
     flex-direction: row;
 }
 
-@media (max-width: 910px) {
+@media (max-width: 1080px) {
     .crush-div {
         width: 60vw;
     }
@@ -758,4 +761,59 @@ profile-image{
 .profile-card:hover .multi-button, .profile-card .multi-button:focus-within {
     width: 10rem;
     height: 10rem;
+}
+
+time.icon
+{
+  font-size: 0.5em;
+  display: block;
+  position: relative;
+  width: 6em;
+  height: 6em;
+  background-color: #fff;
+  border-radius: 0.6em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotate(0deg) skewY(0deg);
+  -webkit-transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
+}
+
+time.icon *
+{
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+
+time.icon strong
+{
+  position: absolute;
+  top: 0;
+  padding: 0.4em 0;
+  color: #fff;
+  background-color: #2B315F;
+  border-bottom: 1px dashed #2B315F;
+  box-shadow: 0 2px 0 #2B315F;
+}
+
+time.icon span
+{
+  width: 100%;
+  font-size: 2.8em;
+  letter-spacing: -0.05em;
+  padding-top: 0.8em;
+  color: #2f2f2f;
+}
+
+.google-logo {
+    font-size: 1.5rem !important;
+    padding-bottom: 3px;
+    position: absolute;
+    bottom: 0;
+    color: #2B315F;
 }
