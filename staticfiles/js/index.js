@@ -95,7 +95,7 @@ for (i = 0; i < coll.length; i++) {
 x = document.getElementsByClassName("tablink");
 x[0].className += " red-border"
 
-function loadCrushes(evt, newTabName) {
+function loadCrushes(evt, newTabName, crush_length) {
     var i, x, tablinks;
     x = document.getElementsByClassName("all-tabs");
     for (i = 0; i < x.length; i++) {
@@ -105,7 +105,11 @@ function loadCrushes(evt, newTabName) {
     for (i = 0; i < x.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" red-border", "");
     }
-    document.getElementById(newTabName).style.display = "flex";
+    if (crush_length == 1) {
+        document.getElementById(newTabName).style.display = "block";    
+    } else {
+        document.getElementById(newTabName).style.display = "flex";
+    }
     evt.currentTarget.firstElementChild.className += " red-border";
 }
 
