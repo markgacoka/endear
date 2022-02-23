@@ -45,10 +45,10 @@
         </div>
         <div class="middle-section">
             <div class="tab-row">
-                <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'user_crush');">
+                <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'user_crush', {{crushes|length}});">
                     <div class="tab-title tablink">Your crushes</div>
                 </a>
-                <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'new_crushes');">
+                <a class="tab-width" href="javascript:void(0)" onclick="loadCrushes(event, 'new_crushes', {{crushes|length}});">
                     <div class="tab-title tablink">New Crushes</div>
                 </a>
             </div>
@@ -74,11 +74,7 @@
                     </div>
                 </div>
                 {% else %}
-                {% if crushes|length == 1 or crushes|length == 2 %}
-                <div class="crush-list" style="padding: 0 7rem !important;">
-                {% else %}
                 <div class="crush-list">
-                {% endif %}
                     <div class="upper-div">
                         {% for name, email in crushes.items %}
                         <div class="crush-div">

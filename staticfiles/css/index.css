@@ -475,6 +475,12 @@ canvas{
     .crush-div {
         width: 60vw;
     }
+    .tab-container {
+        display: flex !important;
+    }
+    .bottom-div-2 {
+        margin-left: 30px;
+    }
 }
 
 .top-div {
@@ -666,9 +672,6 @@ canvas{
         align-items: center;
         justify-content: center;
         display: grid;
-    }
-    .bottom-div-2 {
-        margin-left: 30px;
     }
 }
 
