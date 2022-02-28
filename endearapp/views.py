@@ -55,6 +55,10 @@ def solution(request):
     context = {}
     return render(request, 'solution.html', context)
 
+def war(request):
+    context = {}
+    return render(request, 'war.html', context)
+
 def login_error(request):
     context = {}
     return render(request, 'error.html', context)
