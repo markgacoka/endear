@@ -1,4 +1,4 @@
-function setList(results, token, crush_endpoint, profile){
+function setList(results, token, crush_endpoint, profile, isCrushesThree){
     clearList()
     for (const person of results){
         var request_name = person.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
@@ -24,14 +24,6 @@ function setList(results, token, crush_endpoint, profile){
         userForm.appendChild(listInput3);
 
         const user_button = document.createElement('button')
-        user_button.classList.add("result-card");
-        user_button.onclick = function(event) {
-            userForm.submit();
-            modal.classList.toggle("show-modal");
-            document.getElementsByClassName('crush-input')[0].value = ''
-            clearList();
-        }
-        
         const profileImage = document.createElement('img');
         profileImage.src = profile
         profileImage.classList.add("result-picture");
@@ -50,8 +42,20 @@ function setList(results, token, crush_endpoint, profile){
         container.appendChild(lineBreak)
         container.appendChild(resultEmail)
 
+        user_button.type = 'button';
+        user_button.classList.add("result-card");
         user_button.appendChild(profileImage)
         user_button.appendChild(container)
+        user_button.onclick = function(event) {
+            if (isCrushesThree == 'True') {
+                console.log("More than 3 crushes");
+            }
+            event.preventDefault();
+            modal.classList.toggle("show-modal");
+            // userForm.submit();
+            document.getElementsByClassName('crush-input')[0].value = ''
+            clearList();            
+        }
         userForm.appendChild(user_button);
         list.appendChild(userForm)
     }
@@ -99,17 +103,13 @@ function loadCrushes(evt, newTabName, crush_length) {
     var i, x, tablinks;
     x = document.getElementsByClassName("all-tabs");
     for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+        x[i].style.setProperty('display', 'none', 'important');
     }
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < x.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" red-border", "");
     }
-    if (crush_length == 1) {
-        document.getElementById(newTabName).style.display = "block";    
-    } else {
-        document.getElementById(newTabName).style.display = "flex";
-    }
+    document.getElementById(newTabName).style.display = "flex";
     evt.currentTarget.firstElementChild.className += " red-border";
 }
 

@@ -1,6 +1,5 @@
 import datetime
-from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from endearapp.models import CrushModel
 
 def home(request):
@@ -17,18 +16,23 @@ def dashboard(request):
         context, crushes = {}, {}
         new_crushes = []
         user_crushes = CrushModel.objects.filter(original_user=request.user).values('crush_name','crush_email')
-        for crush in user_crushes:
-            crushes[crush['crush_name']] = crushes.get(crush['crush_name'], crush['crush_email'])
+        for entry in user_crushes:
+            crushes[entry['crush_name']] = entry['crush_email']
+            
         new_crush_model = CrushModel.objects.filter(crush_email=request.user.email).values('original_user_id', 'record_date', 'original_name')
         for email in new_crush_model:
             new_crushes = {email['original_name']: [email['original_user_id'], email['record_date'].strftime('%d-%m-%Y'), email['original_user_id'] in crushes.values()]}
         
+        context['crushes_three'] = 'False'
         if request.method == 'POST':
             if 'delete' in request.POST:
                 CrushModel.objects.filter(crush_email__iexact=request.POST.get('delete')).delete()
                 return redirect('/dashboard/')
             elif 'name' in request.POST and 'email' in request.POST:
                 if request.POST.get('email') == request.user.email:
+                    context['crushes'] = crushes
+                    return render(request, 'dashboard.html', context)
+                if request.POST.get('email') in set(crushes.values()):
                     context['crushes'] = crushes
                     return render(request, 'dashboard.html', context)
                 if len(user_crushes) < 3: 
@@ -42,6 +46,7 @@ def dashboard(request):
                     crush_model.save()
                     return redirect('/dashboard/')
                 else:
+                    context['crushes_three'] = 'True'
                     context['crushes'] = crushes
                     return render(request, 'dashboard.html', context)
             else:

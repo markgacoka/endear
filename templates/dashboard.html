@@ -57,62 +57,63 @@
             {% else %}
             <div id="user_crush" class="tab-container all-tabs" style="display: flex;">
             {% endif %}
-                {% if not crushes %}
-                <div class="centered">
-                    <div class="top-div">You have not chosen any crushes yet.</div>
-                    <div class="bottom-div"><button class="trigger add-crush-button">Add your crush</button></div>
-                    <div class="modal">
-                        <div class="modal-content">
-                            <span class="close-button">×</span>
-                            <h2 class="modal-title-1">Add your crush</h2>
-                            <h2 class="modal-title">Search for a student at Minerva University (M'23)</h2>
-                            <input class="crush-input" type="email" id="email" name="Email">
-                            <div class="results-container">
-                                <ul class="results-list" id="list"></ul>
-                            </div>
+
+            {% if not crushes %}
+            <div class="centered">
+                <div class="top-div">You have not chosen any crushes yet.</div>
+                <div class="bottom-div"><button class="trigger add-crush-button">Add your crush</button></div>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h2 class="modal-title-1">Add your crush</h2>
+                        <h2 class="modal-title">Search for a student at Minerva University (M'23)</h2>
+                        <input class="crush-input" type="email" id="email" name="Email">
+                        <div class="results-container">
+                            <ul class="results-list" id="list"></ul>
                         </div>
                     </div>
                 </div>
-                {% else %}
-                <div class="crush-list">
-                    <div class="upper-div">
-                        {% for name, email in crushes.items %}
-                        <div class="crush-div">
-                            <div class="profile-card">
-                                <div class="multi-button">
-                                    <form id="delete-crush" method="post">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="delete" value="{{email}}"/>
-                                        <button onclick="document.getElementById('delete-crush').submit();">x</button>
-                                    </form>
-                                </div>
-                                <div class="crush-container">
-                                    <div class="container-profile">
-                                        <img class="container-image" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ user.profile_image }}" alt="Minervan photo">
-                                        <div class="container-profile-text">
-                                            <h5>{{ name }}</h5>
-                                            <p>{{ email }}</p>
-                                        </div>
+            </div>
+            {% else %}
+            <div class="crush-list">
+                <div class="upper-div">
+                    {% for name, email in crushes.items %}
+                    <div class="crush-div">
+                        <div class="profile-card">
+                            <div class="multi-button">
+                                <form id="delete-crush" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="delete" value="{{email}}"/>
+                                    <button onclick="document.getElementById('delete-crush').submit();">x</button>
+                                </form>
+                            </div>
+                            <div class="crush-container">
+                                <div class="container-profile">
+                                    <img class="container-image" src="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ user.profile_image }}" alt="Minervan photo">
+                                    <div class="container-profile-text">
+                                        <h5>{{ name }}</h5>
+                                        <p>{{ email }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
-                    <div class="bottom-div-2"><button class="trigger add-crush-button-2">Add your crush</button></div>
-                    <div class="modal">
-                        <div class="modal-content">
-                            <span class="close-button">×</span>
-                            <h2 class="modal-title-1">Add your crush</h2>
-                            <h2 class="modal-title">Search for a student at Minerva University (M'23)</h2>
-                            <input class="crush-input" type="email" id="email" name="Email">
-                            <div class="results-container">
-                                <ul class="results-list" id="list"></ul>
-                            </div>
+                    {% endfor %}
+                </div>
+                <div class="bottom-div-2"><button class="trigger add-crush-button-2">Add your crush</button></div>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h2 class="modal-title-1">Add your crush</h2>
+                        <h2 class="modal-title">Search for a student at Minerva University (M'23)</h2>
+                        <input class="crush-input" type="email" id="email" name="Email">
+                        <div class="results-container">
+                            <ul class="results-list" id="list"></ul>
                         </div>
                     </div>
                 </div>
-                {% endif %}
+            </div>
+            {% endif %}
             </div>
             <div id="new_crushes" class="tab-container all-tabs" style="display:none">
                 {% for key, value in new_crushes.items %}
@@ -170,6 +171,7 @@
         const searchInput = document.querySelector('.crush-input')
         searchInput && searchInput.addEventListener('input', (e) => {
             let value = e.target.value
+            var isCrushesThree = '{{ crushes_three }}';
             if (value && value.trim().length > 0){
                 value = value.trim().toLowerCase();
                 var crush_endpoint = "{% url 'dashboard' %}"
@@ -177,7 +179,7 @@
                 var token = '{{ csrf_token }}';
                 setList(people.filter(person => {
                     return person.name.includes(value)
-                }), token, crush_endpoint, profile)
+                }), token, crush_endpoint, profile, isCrushesThree)
             } else {
                 clearList()
             }
