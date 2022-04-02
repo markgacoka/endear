@@ -111,7 +111,12 @@ function loadCrushes(evt, newTabName, crush_length) {
     for (i = 0; i < x.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" red-border", "");
     }
-    document.getElementById(newTabName).style.display = "block";
+    if (newTabName == 'new_crushes'){
+        document.getElementById(newTabName).style.display = "flex";
+    } else {
+        document.getElementById(newTabName).style.display = "block";
+    }
+    
     evt.currentTarget.firstElementChild.className += " red-border";
 }
 
