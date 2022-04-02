@@ -52,12 +52,7 @@
                     <div class="tab-title tablink">New Crushes</div>
                 </a>
             </div>
-            {% if crushes|length == 1 %}
             <div id="user_crush" class="tab-container all-tabs" style="display: block;">
-            {% else %}
-            <div id="user_crush" class="tab-container all-tabs" style="display: flex;">
-            {% endif %}
-
             {% if not crushes %}
             <div class="centered">
                 <div class="top-div">You have not chosen any crushes yet.</div>
@@ -115,7 +110,7 @@
             </div>
             {% endif %}
             </div>
-            <div id="new_crushes" class="tab-container all-tabs" style="display:none">
+            <div id="new_crushes" class="tab-container all-tabs" style="display: none !important;">
                 {% for key, value in new_crushes.items %}
                 {% if value.2 == True %}
                 <div class="card-container">
