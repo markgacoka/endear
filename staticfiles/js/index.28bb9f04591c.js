@@ -3,7 +3,7 @@ function setList(results, token, crush_endpoint, profile, isCrushesThree){
     for (const person of results){
         var request_name = person.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
         var userForm = document.createElement('form');
-        userForm.method = 'post';
+        userForm.method = 'POST';
         var listInput1 = document.createElement('input')
         var listInput2 = document.createElement('input')
         var listInput3 = document.createElement('input')
@@ -42,17 +42,19 @@ function setList(results, token, crush_endpoint, profile, isCrushesThree){
         container.appendChild(lineBreak)
         container.appendChild(resultEmail)
 
-        user_button.type = 'button';
+        user_button.type = 'submit';
         user_button.classList.add("result-card");
         user_button.appendChild(profileImage)
         user_button.appendChild(container)
         user_button.onclick = function(event) {
             if (isCrushesThree == 'True') {
                 console.log("More than 3 crushes");
+                event.preventDefault();
+            } else {
+                userForm.submit();
             }
-            event.preventDefault();
+            
             modal.classList.toggle("show-modal");
-            // userForm.submit();
             document.getElementsByClassName('crush-input')[0].value = ''
             clearList();            
         }
