@@ -263,6 +263,11 @@ canvas{
     display: block;
 }
 
+.new-crush {
+    align-items: center;
+    justify-content: center;
+}
+
 .card {
     --bg-opacity: 1;
     background-color: #0B0D19;
@@ -273,12 +278,11 @@ canvas{
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin: 0 0 0 40px;
 }
 
 .card-container {
     padding: 1.5rem;
-    width: 65vw;
+    width: 70%;
 }
 
 @media (max-width:768px){
