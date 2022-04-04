@@ -112,7 +112,7 @@ function loadCrushes(evt, newTabName, crush_length) {
         tablinks[i].className = tablinks[i].className.replace(" red-border", "");
     }
     if (newTabName == 'new_crushes'){
-        document.getElementById(newTabName).style.display = "flex";
+        document.getElementById(newTabName).style.display = "grid";
     } else {
         document.getElementById(newTabName).style.display = "block";
     }
