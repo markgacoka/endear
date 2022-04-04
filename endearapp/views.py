@@ -14,7 +14,7 @@ def dashboard(request):
         return redirect('/')
     else:
         context, crushes = {}, {}
-        new_crushes = []
+        new_crushes = {}
         user_crushes = CrushModel.objects.filter(original_user=request.user).values('crush_name','crush_email')
         for entry in user_crushes:
             crushes[entry['crush_name']] = entry['crush_email']
