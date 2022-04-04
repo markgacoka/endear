@@ -21,8 +21,9 @@ def dashboard(request):
             
         new_crush_model = CrushModel.objects.filter(crush_email=request.user.email).values('original_user_id', 'record_date', 'original_name')
         for email in new_crush_model:
-            new_crushes[email['original_name']] = new_crushes.get(email['original_name'], [[email['original_user_id'], email['record_date'].strftime('%d-%m-%Y'), email['original_user_id'] in crushes.values()]])
+            new_crushes[email['original_name']] = new_crushes.get(email['original_name'], [email['original_user_id'], email['record_date'].strftime('%d-%m-%Y'), email['original_user_id'] in crushes.values()])
         
+        print(new_crushes)
         context['crushes_three'] = 'False'
         if request.method == 'POST':
             if 'delete' in request.POST:
