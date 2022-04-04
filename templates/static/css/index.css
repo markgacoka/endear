@@ -264,7 +264,11 @@ canvas{
 }
 
 .new-crush {
+    display: grid;
     align-items: center;
+}
+
+.user-crush {
     justify-content: center;
 }
 
@@ -281,8 +285,9 @@ canvas{
 }
 
 .card-container {
-    padding: 1.5rem;
-    width: 70%;
+    padding: 0.8rem;
+    margin: 0 10vw;
+    float: left;
 }
 
 @media (max-width:768px){
@@ -447,7 +452,6 @@ canvas{
 
 .tab-container {
     width: 100%;
-    justify-content: center;
 }
 
 .red-border {
