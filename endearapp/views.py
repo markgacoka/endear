@@ -1,6 +1,7 @@
 import datetime
 from django.shortcuts import render, redirect
 from endearapp.models import CrushModel
+import cryptocode
 
 def home(request):
     context = {}
@@ -17,17 +18,19 @@ def dashboard(request):
         new_crushes = {}
         user_crushes = CrushModel.objects.filter(original_user=request.user).values('crush_name','crush_email')
         for entry in user_crushes:
-            crushes[entry['crush_name']] = entry['crush_email']
+            crushes[cryptocode.decrypt(entry['crush_name'], "endear")] = cryptocode.decrypt(entry['crush_email'], "endear")
             
-        new_crush_model = CrushModel.objects.filter(crush_email=request.user.email).values('original_user_id', 'record_date', 'original_name')
-        for email in new_crush_model:
-            new_crushes[email['original_name']] = new_crushes.get(email['original_name'], [email['original_user_id'], email['record_date'].strftime('%d-%m-%Y'), email['original_user_id'] in crushes.values()])
-        
-        print(new_crushes)
+        new_crush_model = CrushModel.objects.all().values_list()
+        for _, entry in enumerate(new_crush_model):
+            if cryptocode.decrypt(entry[4], 'endear') == request.user.email:
+                new_crushes[entry[2]] = new_crushes.get(entry[2], [entry[1], entry[5].strftime('%d-%m-%Y'), True])
         context['crushes_three'] = 'False'
         if request.method == 'POST':
             if 'delete' in request.POST:
-                CrushModel.objects.filter(crush_email__iexact=request.POST.get('delete')).delete()
+                deletion_list = CrushModel.objects.filter(original_user=request.user).values_list()
+                for entry in deletion_list:
+                    if cryptocode.decrypt(entry[4], 'endear') == request.POST.get('delete'):
+                        CrushModel.objects.get(id=entry[0]).delete()
                 return redirect('/dashboard/')
             elif 'name' in request.POST and 'email' in request.POST:
                 if request.POST.get('email') == request.user.email:
@@ -41,8 +44,8 @@ def dashboard(request):
                     crush_model = CrushModel.objects.create(
                         original_user = request.user,
                         original_name = request.user.first_name + ' ' + request.user.last_name,
-                        crush_name = response_data['name'],
-                        crush_email = response_data['email'],
+                        crush_name = cryptocode.encrypt(response_data['name'], "endear"),
+                        crush_email = cryptocode.encrypt(response_data['email'], "endear"),
                         record_date = datetime.datetime.now())
                     crush_model.save()
                     return redirect('/dashboard/')
