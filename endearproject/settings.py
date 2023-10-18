@@ -1,5 +1,4 @@
 import os
-import django_heroku
 import dj_database_url
 from pathlib import Path
 
@@ -10,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = 1
 SITE_ID = 1
 SECRET_KEY = 'django-insecure-=k5m*+e3ov*!j4wvxl%9m@jrqi^(in7p6a%v4=h^rbas9$tjl$'
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*','.vercel.app']
 
 # Application definition
 INSTALLED_APPS = [
@@ -86,10 +85,10 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'HOST': 'ec2-52-21-136-176.compute-1.amazonaws.com',
-            'NAME': 'dbvmv51ibvrfhj',
-            'USER': 'lokcqleygaline',
-            'PASSWORD': '54dff85c9b60cae6a2e2847db7343ff0a2a37c8155a929e64a2935bd467bf7ca',
+            'HOST': 'db.ovlleisvqbditsdhyrkw.supabase.co',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'EATScienceDaily001',
             'PORT': '5432',
         }
     }
@@ -97,10 +96,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'HOST': 'ec2-3-228-222-169.compute-1.amazonaws.com',
-            'NAME': 'd87b6ukgbr2f6h',
-            'USER': 'miajkareedhtgz',
-            'PASSWORD': 'a54ebc0d6cf046b6e3d3624a20711072b8e53b95c0787d9556f63fb139346877',
+            'HOST': 'db.ovlleisvqbditsdhyrkw.supabase.co',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'EATScienceDaily001',
             'PORT': '5432',
         }
     }
@@ -132,4 +131,3 @@ USE_TZ = True
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_heroku.settings(locals())
