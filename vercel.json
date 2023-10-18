@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "api/manage.py",
+            "use": "@vercel/python",
+            "config": { "maxLambdaSize": "50mb" }
+        }
+    ],
+    "routes": [
+        { "src": "templates/static/(.*)", "dest": "/static/$1" },
+        { "src": "templates/media/(.*)", "dest": "/media/$1" },
+        { "src": "/(.*)", "dest": "/api/manage.py" }
+    ],
+    "env": {
+        "DJANGO_SETTINGS_MODULE": "endearproject.settings"
+    }
+}
