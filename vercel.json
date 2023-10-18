@@ -2,15 +2,26 @@
     "version": 2,
     "builds": [
         {
-            "src": "endearproject/wsgi.py",
+            "src": "manage.py",
             "use": "@vercel/python",
-            "config": { "maxLambdaSize": "50mb" }
+            "config": {
+                "maxLambdaSize": "50mb"
+            }
         }
     ],
     "routes": [
-        { "src": "templates/static/(.*)", "dest": "/static/$1" },
-        { "src": "templates/media/(.*)", "dest": "/media/$1" },
-        { "src": "/(.*)", "dest": "/api/manage.py" }
+        {
+            "src": "/staticfiles/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/media/(.*)",
+            "dest": "/media/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "manage.py"
+        }
     ],
     "env": {
         "DJANGO_SETTINGS_MODULE": "endearproject.settings"
